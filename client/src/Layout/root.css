@@ -1,0 +1,23 @@
+
+.root {
+    display: flex;
+    height: 100vh;
+    overflow-y: hidden;
+}
+.root_navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 200px;
+    background: var(--secondary-bg)
+}
+.root_navbar a {
+    color: var(--primary-text);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1em;
+}
+

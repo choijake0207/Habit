@@ -6,16 +6,19 @@ const bcrypt = require("bcrypt")
 
 router.post("/register", async (req, res) => {
     const {firstName, lastName, username, password} = req.body
+    const first = firstName.toLowerCase()
+    const last = lastName.toLowerCase()
+    const handle = username.toLowerCase()
     try {
-        const usernameExists = await User.findOne({where: {username: username}})
+        const usernameExists = await User.findOne({where: {username: handle}})
         if (usernameExists) {
             return res.status(400).json({error: "Username Already Exists"})
         }
         const hashedPassword = await bcrypt.hash(password, 10)
         const newUser = await User.create({
-            firstName: firstName,
-            lastName: lastName,
-            username: username,
+            firstName: first,
+            lastName: last,
+            username: handle,
             password: hashedPassword
         })
         res.json("Succesfully created account")

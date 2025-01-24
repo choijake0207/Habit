@@ -7,6 +7,8 @@ import Analytics from "./Pages/Analytics"
 import Friends from "./Pages/Friends"
 import Profile from "./Pages/Profile"
 import Settings from "./Pages/Settings"
+import SingleView from './Pages/SingleView'
+import ViewAll from './Pages/ViewAll'
 
 
 
@@ -19,6 +21,8 @@ const router = createBrowserRouter(
         <Route path="/friends" element={<Friends/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/settings" element={<Settings/>}/>
+        <Route path="/myhabits" element={<ViewAll/>}/>
+        <Route path="/singleview" element={<SingleView/>}/>
       </Route>
     </>
   )

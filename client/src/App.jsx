@@ -1,20 +1,26 @@
 
 import React from 'react'
+import "./App.css"
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router"
 import Root from './Layout/Root'
-import Dashboard from './Pages/Dashboard'
-import Analytics from "./Pages/Analytics"
-import Friends from "./Pages/Friends"
-import Profile from "./Pages/Profile"
-import Settings from "./Pages/Settings"
-import SingleView from './Pages/SingleView'
-import ViewAll from './Pages/ViewAll'
+import Dashboard from './Pages/Dashboard/Dashboard'
+import Analytics from "./Pages/Analytics/Analytics"
+import Friends from "./Pages/Friends/Friends"
+import Profile from "./Pages/Profile/Profile"
+import Settings from "./Pages/Settings/Settings"
+import SingleView from './Pages/SingleView/SingleView'
+import ViewAll from './Pages/ViewAll/ViewAll'
+import Login from './Pages/LogReg/Login'
+import Register from './Pages/LogReg/Register'
 
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/register" element={<Register/>}/>
+      
       <Route path="/" element={<Root/>}>
         <Route index element={<Dashboard/>}/>
         <Route path="/analytics" element={<Analytics/>}/>

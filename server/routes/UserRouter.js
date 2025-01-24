@@ -29,6 +29,26 @@ router.post("/register", async (req, res) => {
     }
 })
 
+router.post("/login", async (req, res) => {
+    const {username, password} = req.body
+    const handle = username.toLowerCase()
+    try {
+        // check if user exists
+        const match = await User.findOne({where: {username: handle}})
+        if (!match) {
+            return res.status(404).json({error: "User Not Found"})
+        }
+        // check password
+        const passMatch = await bcrypt.compare(password, match.password)
+        if (!passMatch) {
+            return res.status(401).json({error: "Password Is Incorrect"})
+        }
+        res.json("Succesfully Logged In")
+    } catch (error) {
+        res.status(500).json({error: "An Error Occured Logging In"})
+    }
+})
+
 
 
 
